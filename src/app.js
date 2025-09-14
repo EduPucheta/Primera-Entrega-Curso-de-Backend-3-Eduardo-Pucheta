@@ -1,17 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import mocksRouter from './routes/mocks.router.js';
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
 
+// Load environment variables
+dotenv.config();
 
 const app = express();
-const PORT = 8080;
-
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://EduPucheta:AR1FuE1jz9FeEyNC@coderhouse.awd0ehk.mongodb.net/?retryWrites=true&w=majority&appName=CoderHouse');
+mongoose.connect(process.env.MONGODB_URL);
 
 app.use('/api/mocks', mocksRouter);
 app.use('/api/users', usersRouter);
