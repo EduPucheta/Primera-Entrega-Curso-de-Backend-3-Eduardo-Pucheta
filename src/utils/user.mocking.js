@@ -1,11 +1,13 @@
 import { faker } from '@faker-js/faker';
 import bcrypt from 'bcryptjs';
+import mongoose from 'mongoose';
 
 const generateMockUser = () => {
 const salt = bcrypt.genSaltSync(10);
 const hashedPassword = bcrypt.hashSync('coder123', salt);
 
 return {
+    _id: new mongoose.Types.ObjectId(),
     first_name: faker.person.firstName(),
     last_name: faker.person.lastName(),
     email: faker.internet.email(),

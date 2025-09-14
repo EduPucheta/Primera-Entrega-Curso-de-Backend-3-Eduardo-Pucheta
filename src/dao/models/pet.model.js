@@ -12,6 +12,10 @@ const petSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    birthDate: {
+        type: String,
+        required: true
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users' 

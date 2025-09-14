@@ -1,9 +1,11 @@
 import { faker } from '@faker-js/faker';
+import mongoose from 'mongoose';
 
 const generateMockPet = () => {
 return {
-    name: faker.animal.cat(),
-    specie: faker.animal.type(),
+    _id: new mongoose.Types.ObjectId(),
+    name: faker.animal.petName(),
+    species: faker.animal.type(),
     birthDate: faker.date.birthdate().toISOString(),
 };
 };

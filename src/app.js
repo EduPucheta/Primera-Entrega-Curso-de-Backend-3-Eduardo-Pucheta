@@ -11,7 +11,7 @@ const PORT = 8080;
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://nahuelrodriguez:nahuelvcp@cluster0.x9hrulj.mongodb.net/');
+mongoose.connect('mongodb+srv://EduPucheta:AR1FuE1jz9FeEyNC@coderhouse.awd0ehk.mongodb.net/?retryWrites=true&w=majority&appName=CoderHouse');
 
 app.use('/api/mocks', mocksRouter);
 app.use('/api/users', usersRouter);
