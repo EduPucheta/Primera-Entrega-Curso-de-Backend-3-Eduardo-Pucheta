@@ -29,6 +29,11 @@ app.get('/', (req, res) => {
     res.send('¡Servidor funcionando correctamente!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);  
-});
+// Only start the server if this file is run directly (not imported for testing)
+if (import.meta.url === `file://${process.argv[1]}`.replace(/\\/g, '/')) {
+    app.listen(PORT, () => {
+        console.log(`Servidor escuchando en el puerto ${PORT}`);  
+    });
+}
+
+export default app;
